@@ -1,3 +1,9 @@
+@font-face {
+  font-family: FragmentSin;
+  src: url("fonts/PPFragment-Variable.woff2") format("woff2"),
+    url("fonts/PPFragment-Variable.woff") format("woff");
+}
+
 :root {
   --c-bg: hsla(0, 0%, 10%, 1);
   --c-tx: hsla(0, 0%, 95%, 1);
@@ -10,12 +16,6 @@
   --c-fr-100: hsla(0, 0%, 10%, 1);
   --s-05: 8px;
   --s-10: 24px;
-}
-
-@font-face {
-  font-family: FragmentSin;
-  src: url("/fonts/PPFragment-Variable.woff2") format("woff2"),
-    url("/fonts/PPFragment-Variable.woff") format("woff");
 }
 
 body {
