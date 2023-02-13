@@ -1,0 +1,109 @@
+:root {
+  --c-bg: hsla(0, 0%, 10%, 1);
+  --c-tx: hsla(0, 0%, 95%, 1);
+  --c-fr-900: hsla(0, 0%, 90%, 1);
+  --c-fr-800: hsla(0, 0%, 85%, 1);
+  --c-fr-700: hsla(0, 0%, 70%, 1);
+  --c-fr-600: hsla(0, 0%, 65%, 1);
+  --c-fr-500: hsla(0, 0%, 50%, 1);
+  --c-fr-400: hsla(0, 0%, 40%, 1);
+  --c-fr-100: hsla(0, 0%, 10%, 1);
+  --s-05: 8px;
+  --s-10: 24px;
+}
+
+@font-face {
+  font-family: FragmentSin;
+  src: url("/fonts/PPFragment-Variable.woff2") format("woff2"),
+    url("/fonts/PPFragment-Variable.woff") format("woff");
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-tx);
+  font-family: FragmentSin, sans-serif;
+}
+
+p,
+h2 {
+  max-width: 420px;
+}
+
+h2 {
+  font-size: 1.1rem;
+  font-variation-settings: "wght" 250, "srff" 100;
+  color: var(--c-fr-600);
+  margin: 0;
+}
+
+p {
+  font-size: 1.1rem;
+  font-variation-settings: "wght" 250, "srff" 65;
+  color: var(--c-fr-600);
+  text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--s-10);
+  gap: var(--s-10);
+}
+
+.header {
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: var(--s-10);
+  gap: var(--s-05);
+}
+
+.formWrapper {
+  display: flex;
+  gap: var(--s-05);
+  width: 80%;
+  max-width: 640px;
+}
+
+.soundInput {
+  font-family: FragmentSin, sans-serif;
+  font-variation-settings: "wght" 250, "srff" 65;
+  width: 80%;
+  padding: 2px 8px;
+  font-size: 18px;
+  background: none;
+  color: var(--c-fr-900);
+  border: 1px solid var(--c-fr-700);
+  outline: 1px solid var(--c-bg);
+  box-shadow: 0 0 8px 0 var(--c-fr-100);
+  transition: all 0.2s ease-in;
+}
+
+.soundInput:hover {
+  border: 1px solid var(--c-fr-800);
+  outline: 1px solid var(--c-fr-100);
+  box-shadow: 0 0 8px 0 var(--c-fr-400);
+}
+
+.soundInput:focus {
+  border: 1px solid var(--c-fr-100);
+  outline: 1px solid var(--c-fr-900);
+  box-shadow: 0 0 8px 0 var(--c-fr-600);
+}
+
+.button {
+  font-family: FragmentSin, sans-serif;
+  font-variation-settings: "wght" 250, "srff" 65;
+  border: 1px solid white;
+  padding: 2px 8px;
+  font-size: 18px;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:hover {
+}
