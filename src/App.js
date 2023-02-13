@@ -13,6 +13,7 @@ export default function App() {
         sinestezia adds another layer to music nfts through generative visuals,
         driven by off and on-chain data.
       </p>
+      <p>powered by sound.xyz</p>
       <ApiTest />
     </div>
   );
