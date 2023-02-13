@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import React, { useRef, useEffect } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useFrame } from "@react-three/fiber";
 import { Sphere } from "@react-three/drei";
 import { LayerMaterial, Displace } from "lamina";
@@ -28,9 +28,22 @@ export const Analyzer = ({ sound }) => {
       );
     }
   });
+
+  const [hovered, setHovered] = useState(false);
+
+  useEffect(() => {
+    document.body.style.cursor = hovered ? "pointer" : "auto";
+  }, [hovered]);
+
   return (
-    <>
-      <Sphere ref={avgFreq} args={[0.3, 128, 128]}>
+    <group>
+      <Sphere
+        ref={avgFreq}
+        args={[0.3, 128, 128]}
+        position={[0, 0, 0]}
+        onPointerOver={() => setHovered(true)}
+        onPointerOut={() => setHovered(false)}
+      >
         <LayerMaterial
           lighting={"physical"}
           transmission={1}
@@ -42,6 +55,6 @@ export const Analyzer = ({ sound }) => {
           <Displace ref={displaceRef} scale={0} strength={0.07} />
         </LayerMaterial>
       </Sphere>
-    </>
+    </group>
   );
 };

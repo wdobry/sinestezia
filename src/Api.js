@@ -79,33 +79,42 @@ const Scene = ({ filename = "canvas", releaseData }) => {
 
   const coverRef = useRef();
   useFrame((state, delta) => {
-    coverRef.current.rotation.y += delta * 0.5;
+    coverRef.current.rotation.z += delta * 0.5;
   });
 
   const [play, setPlay] = useState(false);
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    setLoaded(true);
+  }, [releaseData]);
 
   return (
     <>
-      <PerspectiveCamera position={[0, 0, 1]} makeDefault />
-      <color attach="background" args={["black"]} />
+      <PerspectiveCamera position={[0, 0, 1]} makeDefault toneMapped={false} />
+      <color attach="background" args={["#1a1a1a"]} toneMapped={false} />
       <ambientLight />
       <pointLight position={[10, 10, 10]} />
       {/* <Text color="white" anchorX="center" anchorY="middle" fontSize="0.1">
         {releaseData.title}, {releaseData.artist.name}
       </Text> */}
-      <PlaySound url={releaseData.track.revealedAudio.url} play={play} />
-      <group
-        ref={coverRef}
-        position={[0, 0, -1]}
-        onClick={() => setPlay(!play)}
-      >
-        <Suspense fallback={null}>
-          <mesh>
-            <boxGeometry args={[0.8, 0.8, 0.02]} />
-            <meshStandardMaterial map={texture} />
-          </mesh>
-        </Suspense>
-      </group>
+      {releaseData && (
+        <>
+          <PlaySound
+            url={releaseData.track.revealedAudio.url}
+            play={play}
+            loaded={loaded}
+          />
+          <group ref={coverRef} onClick={() => setPlay(!play)}>
+            <Suspense fallback={null}>
+              <mesh position={[0, 0, -1]}>
+                <boxGeometry args={[0.8, 0.8, 0.02]} />
+                <meshStandardMaterial map={texture} />
+              </mesh>
+            </Suspense>
+          </group>
+        </>
+      )}
     </>
   );
 };
