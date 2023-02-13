@@ -2,7 +2,7 @@ import React, { Suspense, useEffect, useRef } from "react";
 import { PositionalAudio } from "@react-three/drei";
 import { Analyzer } from "./Analyzer";
 
-export const PlaySound = ({ url, play }) => {
+export const PlaySound = ({ url, play, loaded }) => {
   // This component creates a suspense block, blocking execution until
   // all async tasks (in this case PositionAudio) have been resolved.
   const sound = useRef();
